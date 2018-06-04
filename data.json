@@ -1,0 +1,7 @@
+[
+    {
+        "term": "Object",
+        "definition": "Object properties can be both primitive values, other objects, and functions.",
+        "tags": "object"
+    }
+]
