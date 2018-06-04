@@ -1,11 +1,11 @@
-var mongoose = require('mongoose');
-var config = require('../config.js');
+let mongoose = require('mongoose');
+let config = require('../config.js');
 
 //const url = config.data.mongoUrl;
 const url = 'mongodb://localhost/keyvalue';
 mongoose.connect(url);
 
-var db = mongoose.connection;
+let db = mongoose.connection;
 
 db.on('error', function () {
   console.log('mongoose connection error');
@@ -15,15 +15,15 @@ db.once('open', function () {
   console.log('mongoose connected successfully');
 });
 
-var dictionarySchema = mongoose.Schema({
+let dictionarySchema = mongoose.Schema({
   term: String,
   definition: String,
   tags: String
 });
 
-var Dictionary = mongoose.model('Dictionary', dictionarySchema);
+let Dictionary = mongoose.model('Dictionary', dictionarySchema);
 
-var selectAll = function (cb) {
+let selectAll = function (cb) {
   Dictionary.find({}, function (err, results) {
     if (err) {
       cb(err, null);

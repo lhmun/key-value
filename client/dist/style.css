@@ -11,8 +11,21 @@ a:visited {
 footer {
     text-align: center;
     font-size: 10px;
+    padding: 50px;
 }
 
 body {
     font-family: Tahoma;
+}
+
+.definition {
+    padding-left: 15px;
+}
+
+.results {
+    padding: 30px;
+}
+
+.term {
+    font-size: 30px;
 }
