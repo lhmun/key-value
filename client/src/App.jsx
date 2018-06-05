@@ -11,6 +11,7 @@ class App extends React.Component {
     this.state = {
       query: '',
       results: [{term: '', definition: '', tags: ''}],
+      hideResults: true,
     }
     this.handleSearch = this.handleSearch.bind(this);
   }
@@ -34,6 +35,11 @@ class App extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
+      if(query === ''){
+        this.setState({hideResults: true});
+      } else {
+        this.setState({hideResults: false});
+      }
   }
 
   render() {
@@ -41,7 +47,7 @@ class App extends React.Component {
       <div className='header'>
         <h1>Key-Value Dictionary</h1>
         <Search handleSearch={this.handleSearch} />
-        <Results results={this.state.results}/>
+        {!this.state.hideResults && <Results results={this.state.results} />}
       </div>
     )
   }
